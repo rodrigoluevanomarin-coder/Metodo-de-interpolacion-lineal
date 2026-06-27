@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sistema de Predicción de Ventas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#74c0fc,#ffd43b);
+min-height:100vh;
+}
+
+header{
+text-align:center;
+padding:70px 20px;
+color:white;
+}
+
+header h1{
+font-size:3.8rem;
+font-weight:700;
+text-shadow:3px 3px 8px rgba(0,0,0,.25);
+}
+
+header p{
+font-size:1.3rem;
+margin-top:15px;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:30px;
+margin:25px 0;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.card h2{
+color:#e63946;
+margin-bottom:15px;
+}
+
+.card p{
+line-height:1.8;
+font-size:1.1rem;
+}
+
+.formula{
+margin-top:20px;
+background:#d8f3dc;
+padding:20px;
+border-radius:15px;
+font-size:1.3rem;
+font-weight:bold;
+text-align:center;
+}
+
+.ejemplo{
+margin-top:20px;
+background:#fff3cd;
+padding:20px;
+border-radius:15px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+table th{
+background:#06d6a0;
+color:white;
+padding:12px;
+}
+
+table td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+ol{
+padding-left:25px;
+line-height:2;
+font-size:1.1rem;
+}
+
+.boton{
+text-align:center;
+margin:40px 0;
+}
+
+.boton a{
+background:#ef476f;
+color:white;
+padding:18px 40px;
+text-decoration:none;
+border-radius:50px;
+font-size:1.2rem;
+font-weight:600;
+transition:.3s;
+}
+
+.boton a:hover{
+background:#d62839;
+}
+
+#programa{
+padding:60px 20px;
+}
+
+.calculadora{
+background:white;
+max-width:700px;
+margin:auto;
+padding:40px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.calculadora h2{
+text-align:center;
+color:#1d3557;
+margin-bottom:25px;
+}
+
+input{
+width:100%;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:1rem;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#06d6a0;
+color:white;
+font-size:1.1rem;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+background:#00b894;
+}
+
+#resultado{
+margin-top:25px;
+padding:20px;
+background:#f1f3f5;
+border-radius:15px;
+font-size:1.1rem;
+line-height:1.8;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:white;
+font-weight:600;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📈 Sistema de Predicción de Ventas</h1>
+
+<p>
+Aplicación basada en el método numérico de Interpolación Lineal
+</p>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>📚 Introducción</h2>
+
+<p>
+Las empresas necesitan anticipar su comportamiento comercial para planificar
+inventarios, compras y estrategias de crecimiento. Este proyecto utiliza
+la Interpolación Lineal para estimar ventas futuras a partir de datos históricos.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🧮 ¿Qué es la Interpolación Lineal?</h2>
+
+<p>
+La interpolación lineal es un método numérico utilizado para estimar valores
+desconocidos a partir de dos valores conocidos. Se basa en la idea de que
+los datos siguen una tendencia lineal entre dos puntos.
+</p>
+
+<div class="formula">
+
+y = y₁ + ((x - x₁)(y₂ - y₁)) / (x₂ - x₁)
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>⚙️ Procedimiento del Método</h2>
+
+<ol>
+<li>Ingresar las ventas de dos meses conocidos.</li>
+<li>Seleccionar el mes que se desea estimar.</li>
+<li>Aplicar la fórmula de interpolación lineal.</li>
+<li>Calcular el valor estimado.</li>
+<li>Mostrar el resultado al usuario.</li>
+</ol>
+
+</div>
+
+<div class="card">
+
+<h2>💼 Aplicación Empresarial</h2>
+
+<p>
+Las organizaciones utilizan estimaciones para tomar decisiones sobre
+producción, inventarios y estrategias de venta. Este sistema permite
+obtener una proyección rápida basada en información histórica.
+</p>
+
+<div class="ejemplo">
+
+<h3>Ejemplo</h3>
+
+<table>
+
+<tr>
+<th>Mes</th>
+<th>Ventas</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>1000</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>1500</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>2000 (estimado)</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🎯 Objetivo del Proyecto</h2>
+
+<p>
+Desarrollar una aplicación web capaz de estimar ventas futuras mediante
+el método numérico de Interpolación Lineal, facilitando la toma de decisiones
+en entornos empresariales.
+</p>
+
+</div>
+
+<div class="boton">
+
+<a href="#programa">
+🚀 Ir al Programa
+</a>
+
+</div>
+
+</div>
+
+<section id="programa">
+
+<div class="calculadora">
+
+<h2>📊 Calculadora de Predicción de Ventas</h2>
+
+<input type="number" id="venta1" placeholder="Ventas del Mes 1">
+
+<input type="number" id="venta2" placeholder="Ventas del Mes 2">
+
+<input type="number" id="mes" placeholder="Mes que deseas estimar">
+
+<button onclick="calcular()">
+Calcular Predicción
+</button>
+
+<div id="resultado"></div>
+
+</div>
+
+</section>
+
+<footer>
+
+Proyecto de Matemáticas Discretas | Ingeniería en Sistemas
+
+</footer>
+
+<script>
+
+function calcular(){
+
+let y1 = parseFloat(document.getElementById("venta1").value);
+let y2 = parseFloat(document.getElementById("venta2").value);
+let x = parseFloat(document.getElementById("mes").value);
+
+if(isNaN(y1) || isNaN(y2) || isNaN(x)){
+
+document.getElementById("resultado").innerHTML =
+"⚠️ Debes completar todos los campos.";
+
+return;
+}
+
+let resultado = y1 + ((x - 1) * (y2 - y1));
+
+document.getElementById("resultado").innerHTML =
+
+`
+<h3>Resultado de la Interpolación</h3>
+
+<p><strong>Datos ingresados:</strong></p>
+
+<p>
+Mes 1 = ${y1}<br>
+Mes 2 = ${y2}<br>
+Mes a estimar = ${x}
+</p>
+
+<p><strong>Sustitución en la fórmula:</strong></p>
+
+<p>
+y = ${y1} + ((${x} - 1) × (${y2} - ${y1})) / (2 - 1)
+</p>
+
+<p>
+<strong>Ventas estimadas:</strong>
+$${resultado.toFixed(2)}
+</p>
+`;
+}
+
+</script>
+
+</body>
+</html>
