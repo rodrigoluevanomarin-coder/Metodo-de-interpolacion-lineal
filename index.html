@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Predicción de Ventas</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+margin-top:50px;
+}
+
+input{
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+}
+
+#resultado{
+font-size:25px;
+margin-top:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Predicción de Ventas</h1>
+
+<h3>Método Numérico: Interpolación Lineal</h3>
+
+<input type="number" id="venta1" placeholder="Ventas mes 1">
+
+<br>
+
+<input type="number" id="venta2" placeholder="Ventas mes 2">
+
+<br>
+
+<input type="number" id="mes" placeholder="Mes a estimar">
+
+<br>
+
+<button onclick="calcular()">
+
+Calcular
+
+</button>
+
+<div id="resultado"></div>
+
+<script>
+
+function calcular(){
+
+let y1=parseFloat(document.getElementById("venta1").value);
+
+let y2=parseFloat(document.getElementById("venta2").value);
+
+let x=parseFloat(document.getElementById("mes").value);
+
+let resultado=
+y1+((x-1)*(y2-y1))/(2-1);
+
+document.getElementById("resultado").innerHTML=
+
+"Ventas estimadas: "+resultado.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
